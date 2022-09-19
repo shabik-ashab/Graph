@@ -25,8 +25,47 @@ int main()
     // 1. dense graph (if the val of edge is close to complete graph edge)
     // 2. sporse graph
 
-    // 
+    // Adjacency Matrix 
+    // the number represent the connection from one node to another
+    // it's a non weighted graph
+    /*
+      a b c d e
+    a 0 0 1 0 0
+    b 0 0 0 0 0
+    c 0     1 0
+    d     0
+    e     1
+    */
+   // it's a weighted graph
+    /*
+      a b c d e
+    a 0 6 5 3 0
+    b 6 0 2 0 0
+    c 0     1 0
+    d     0
+    e     1
+    */
 
+    //Adjacency List
+    // it's an array of list
+    // creating graph with list is better to optimize some algorithom
+    // non weighted graph
+    /*
+    a  b c
+    b 
+    c  d b
+    d  a e
+    e  c
+    */
+    // weighted graph
+    // list pair<char,int>
+    /*
+    a  b,6 c,5
+    b  a,6 c,2
+    c  b,2 a,5 e,1
+    d  
+    e  
+    */
 
 
     return 0;
