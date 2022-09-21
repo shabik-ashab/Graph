@@ -4,11 +4,23 @@ using namespace std;
 typedef pair<int,int> Pair;
 
 class Graph{
+    // count of vertex and adj list(arr list) (list of list)
+    // type of list depends on the types of nodes and weight
+    /*
+    0: (1, 7)(2, 1)(5, 3)
+    1: (0, 7)(3, 11)
+    2: (0, 1)(3, 3)(5, 8)
+    3: (1, 11)(2, 3)(6, 1)
+    4: (6, 4)(5, 6)
+    5: (0, 3)(2, 8)(6, 2)(4, 6)
+    6: (3, 1)(5, 2)(4, 4)
+    */
     int v;
     list <Pair> *adj;
 public:
     Graph(int v){
         this->v = v;
+        // size of the array list is equal to node count
         adj = new list<Pair> [v];
     }
 
@@ -24,15 +36,40 @@ public:
         }
     }
 
+    void bfs(int source){
+        vector<bool> visited(v,false);
+        queue<int> q;
+
+        visited[source] = true;
+        q.push(source);
+
+        while(!q.empty()){
+            int u = q.front();
+            cout<<u<<" ";
+            q.pop();
+
+            for(auto elem: adj[u]){
+                int v = elem.first;
+                if(!visited[v]){
+                    visited[v] = true;
+                    q.push(v);
+                }
+            }
+        }
+    }
+
 };
 
 int main()
 {
+    // V -> Node count, e -> edge count
     int V,e;
     cin>>V>>e;
 
+    // 
     Graph g(V);
     for(int i=0;i<e;i++){
+        // u->node 1, v->node2, w->weight between u and v nodes
         int u,v,w;
         cin>>u>>v>>w;
 
@@ -43,6 +80,9 @@ int main()
         cout<<endl;
         g.printNeighbour(i);
     }
+
+    cout<<endl;
+    g.bfs(0);
 
 
 

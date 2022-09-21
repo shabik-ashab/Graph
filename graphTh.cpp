@@ -67,6 +67,16 @@ int main()
     e  
     */
 
+    // dfs bfs
+    // spaning tree
+    // we will create a tree without any loop
+    /* 
+    spaning tree is a tree genarated from a graph which cover all the nodes
+    and create a asyclic tree
+    */
+    // bfs spaning tree
+
+
 
     return 0;
 }
