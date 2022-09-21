@@ -58,6 +58,19 @@ public:
         }
     }
 
+    void dfs(int source){
+        static vector<bool> visited(v,false);
+        queue<int> q;
+        visited[source] = true;
+
+        cout<<source<<" ";
+        for(auto elem:adj[source]){
+            int v = elem.first;
+            if(!visited[v]) dfs(v);
+        }
+
+    }
+
 };
 
 int main()
@@ -83,6 +96,9 @@ int main()
 
     cout<<endl;
     g.bfs(0);
+
+    cout<<endl;
+    g.dfs(0);
 
 
 
