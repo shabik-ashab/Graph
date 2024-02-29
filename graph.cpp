@@ -60,7 +60,6 @@ public:
 
     void dfs(int source){
         static vector<bool> visited(v,false);
-        queue<int> q;
         visited[source] = true;
 
         cout<<source<<" ";
